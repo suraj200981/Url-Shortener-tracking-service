@@ -17,9 +17,8 @@ public class TrackingController {
 
 
     @GetMapping("/tracking")
-    public ResponseEntity<String> trackingUrl(@RequestBody ShortenedURL shortenedURL){
-        System.out.println(shortenedURL);
-
+    public ResponseEntity<String> trackingUrl(@RequestBody ShortenedURL request){
+        System.out.println(request.getShortenedUrl());
         return  new ResponseEntity<>(HttpStatusCode.valueOf(200));
     }
 }
