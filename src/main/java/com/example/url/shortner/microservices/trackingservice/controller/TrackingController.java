@@ -11,14 +11,13 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8080/")
 @RestController
 public class TrackingController {
     @Autowired
     TrackingRepository repo;
 
-    @MessageMapping("/tracking")
-    @SendTo("/topic/tracking-url")
+    @PostMapping("/tracking")
     public UrlDTO trackingUrl(@RequestBody ShortenedURL request) {
         System.out.println(request.getShortenedUrl());
         UrlDTO foundUrl = repo.findByShortenedUrl(request.getShortenedUrl());
