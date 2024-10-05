@@ -14,7 +14,7 @@ public class KafkaConsumerService {
     @Autowired
     TrackingWebSocketHandler trackingWebSocketHandler;
 
-    @KafkaListener(topics = "my-topic")
+    @KafkaListener(topics = "url-click-topic")
     public void receiveMessage(String message) {
         // Process the consumed message
         System.out.println("Received message: " + message);
